@@ -1,0 +1,100 @@
+<!-- <div class="container">
+  <div >
+    search bar and search button div this is a comment
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <input
+        class="form-control"
+        [(ngModel)]="searchQuery"
+        placeholder="Search here"
+      />
+      <button
+        (click)="searcheImages(searchQuery)"
+        type="button"
+        class="btn btn-danger"
+      >
+        Search
+      </button>
+
+      <p *ngIf="searching">fetching data ....</p>
+    </div>
+
+    displaying the retrieved images this is a comment
+
+    <div class="container">
+      <div class="row row-cols" style="padding: 2.1em">
+        <div class="col" *ngFor="let image of images">
+          <div
+            class="card mb-3"
+            style="
+              background-color: #e4f5ff;
+              font-family: 'Source Sans Pro', sans-serif;
+              font-weight: bold;
+            "
+          >
+            <a [href]="image.pageURL">
+              <img [src]="image.webformatURL" class="card-img-top" />
+            </a>
+            <div class="card-body" >
+              <p class="card-text">Tags: {{ image.tags }}</p>
+              <p class="card-text">User: {{ image.user }}</p>
+              <p class="card-text">Comments: {{ image.comments }}</p>
+              <p class="card-text">Likes: {{ image.likes }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div>
+    <!-- search bar and search button div this is a comment -->
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <input
+        class="form-control"
+        [(ngModel)]="searchQuery"
+        placeholder="Search here"
+      />
+      <button
+        (click)="searchImages(searchQuery)"
+        type="button"
+        class="btn btn-danger"
+      >
+        Search
+      </button>
+
+      <p *ngIf="searching">fetching data ....</p>
+    </div>
+
+
+    <div class="row row-cols">
+      <mat-card
+        class="example-card , col"
+        *ngFor="let image of images"
+      >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ image.user }}</mat-card-title>
+          <mat-card-subtitle>{{ image.tags }}</mat-card-subtitle>
+        </mat-card-header>
+        <a [href]="image.pageURL">
+          <img [src]="image.webformatURL" class="card-img-top" />
+        </a>
+        <mat-card-content>
+          <div class="card-body">
+            <p class="card-text">Tags: {{ image.tags }}</p>
+            <p class="card-text">Comments: {{ image.comments }}</p>
+            <p class="card-text">Likes: {{ image.likes }}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button style="margin-left: 7px;">SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
